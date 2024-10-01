@@ -17,7 +17,7 @@ for identifier in ${environment_variable_identifiers[@]}; do
         all_environment_variables_are_set=false
     fi
     if [[ "$identifier" == *PATH ]]; then
-        if ! stat "$identifier"; then
+        if [[ ! -e ${!identifier} ]]; then
             echo "ERROR: $identifier is not a valid path."
             all_path_environment_variables_are_valid=false
         fi

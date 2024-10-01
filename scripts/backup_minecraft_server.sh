@@ -25,8 +25,8 @@ for identifier in ${environment_variable_identifiers[@]}; do
         all_environment_variables_are_set=false
     fi
     if [[ "$identifier" == *PATH ]]; then
-        if ! stat "$identifier"; then
-            echo "ERROR: $identifier is not a valid path."
+        if [[ ! -e "${!identifier}" ]]; then
+            echo "ERROR: $identifier is not a valid file or path."
             all_path_environment_variables_are_valid=false
         fi
     fi
@@ -36,6 +36,8 @@ if [[ "$all_environment_variables_are_set" != true ]] || [[ "$all_path_environme
     echo "ERROR: Not all environment variables were valid"
     exit 1
 fi
+
+
 
 source $DISCORD_ALERT_SCRIPT_PATH
 now_date="$(date +%Y-%m-%d_%H-%M-%S)"
