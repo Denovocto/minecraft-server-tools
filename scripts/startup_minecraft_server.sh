@@ -5,9 +5,9 @@
 # requires environment variable DISCORD_ROLE_REF_ID with role ID for mentions in server
 
 environment_variable_identifiers=( \
-    "DISCORD_ALERT_SCRIPT_PATH", \
-    "DISCORD_WEBHOOK_URL", \
-    "DISCORD_ROLE_REF_ID", \
+    "DISCORD_ALERT_SCRIPT_PATH" \
+    "DISCORD_WEBHOOK_URL" \
+    "DISCORD_ROLE_REF_ID" \
 )
 all_environment_variables_are_set=true
 all_path_environment_variables_are_valid=true
@@ -17,11 +17,17 @@ for identifier in ${environment_variable_identifiers[@]}; do
         all_environment_variables_are_set=false
     fi
     if [[ "$identifier" == *PATH ]]; then
-        if [[ ! -f "$identifier" ]] || [[ ! -d "$identifier" ]]; then
+        if ! [ -e "$identifier" ]; then
+            echo "ERROR: $identifier is not a valid path."
             all_path_environment_variables_are_valid=false
         fi
     fi
 done
+
+if [[ "$all_environment_variables_are_set" != true ]] || [[ "$all_path_environment_variables_are_valid" != true ]]; then
+    echo "ERROR: Not all environment variables were valid"
+    exit 1
+fi
 
 function alert-dagon() {
     local message=$1

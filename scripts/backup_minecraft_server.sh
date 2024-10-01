@@ -9,12 +9,12 @@
 # requires environment variable RSYNC_PUB_KEY_PATH with a path to a valid public key to use to auth into rsync server
 
 environment_variable_identifiers=( \
-    "DISCORD_ALERT_SCRIPT_PATH", \
-    "DISCORD_WEBHOOK_URL", \
-    "DISCORD_USER_ID", \
-    "MINECRAFT_DATA_DIR_PATH", \
-    "RSYNC_USERNAME_SERVER_URL", \
-    "RSYNC_SERVER_DESTINATION_DIR_PATH", \
+    "DISCORD_ALERT_SCRIPT_PATH" \
+    "DISCORD_WEBHOOK_URL" \
+    "DISCORD_USER_ID" \
+    "MINECRAFT_DATA_DIR_PATH" \
+    "RSYNC_USERNAME_SERVER_URL" \
+    "RSYNC_SERVER_DESTINATION_DIR_PATH" \
     "RSYNC_PUB_KEY_PATH" \
 )
 all_environment_variables_are_set=true
@@ -25,17 +25,17 @@ for identifier in ${environment_variable_identifiers[@]}; do
         all_environment_variables_are_set=false
     fi
     if [[ "$identifier" == *PATH ]]; then
-        if [[ ! -f "$identifier" ]] || [[ ! -d "$identifier" ]]; then
+        if ! [ -e "$identifier" ]; then
+            echo "ERROR: $identifier is not a valid path."
             all_path_environment_variables_are_valid=false
         fi
     fi
 done
 
 if [[ "$all_environment_variables_are_set" != true ]] || [[ "$all_path_environment_variables_are_valid" != true ]]; then
+    echo "ERROR: Not all environment variables were valid"
     exit 1
 fi
-
-
 
 source $DISCORD_ALERT_SCRIPT_PATH
 now_date="$(date +%Y-%m-%d_%H-%M-%S)"
