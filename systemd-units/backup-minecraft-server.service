@@ -1,0 +1,8 @@
+[Unit]
+Description=Service that backups minecraft server to NAS
+After=start-minecraft-server.service
+
+[Service]
+User=root
+WorkingDirectory=/root/applications/minecraft
+ExecStart=/root/applications/minecraft/backup_minecraft_server.sh
