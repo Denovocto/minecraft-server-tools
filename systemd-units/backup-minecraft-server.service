@@ -5,4 +5,4 @@ After=startup-minecraft-server.service
 [Service]
 User=root
 WorkingDirectory=/root/applications/minecraft
-ExecStart=/root/applications/minecraft/backup_minecraft_server.sh
+ExecStart=/bin/bash -l /root/applications/minecraft/backup_minecraft_server.sh

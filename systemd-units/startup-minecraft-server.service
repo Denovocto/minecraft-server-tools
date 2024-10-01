@@ -6,7 +6,7 @@ After=podman.service
 User=root
 Restart=always
 WorkingDirectory=/root/applications/minecraft
-ExecStart=/bin/bash /root/applications/minecraft/startup_minecraft_server.sh
+ExecStart=/bin/bash -l /root/applications/minecraft/startup_minecraft_server.sh
 ExecStop=/usr/bin/podman stop minecraft-papa
 [Install]
 WantedBy=multi-user.target
