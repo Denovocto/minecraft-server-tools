@@ -1,6 +1,6 @@
 [Unit]
 Description=Service that backups minecraft server to NAS
-After=start-minecraft-server.service
+After=startup-minecraft-server.service
 
 [Service]
 User=root
