@@ -26,7 +26,7 @@ for identifier in ${environment_variable_identifiers[@]}; do
     fi
     if [[ "$identifier" == *PATH ]]; then
         if [[ ! -e "${!identifier}" ]]; then
-            echo "ERROR: $identifier is not a valid file or path."
+            echo "ERROR: $identifier with value ${!identifier} is not a valid path."
             all_path_environment_variables_are_valid=false
         fi
     fi
