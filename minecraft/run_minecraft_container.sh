@@ -33,10 +33,4 @@ podman run --name minecraft-papa \
 --restart on-failure:3 \
 --network chonkatronic-services \
 --network-alias minecraft-papa \
-itzg/minecraft-server:java11P \
--v "$MINECRAFT_DIR_PATH/data:/data:Z" \
--v "$MINECRAFT_DIR_PATH/config:/config:Z" \
---restart on-failure:3 \
---network chonkatronic-services \
---network-alias minecraft-papa \
-itzg/minecraft-server:java11
+itzg/minecraft-server:java11 \
