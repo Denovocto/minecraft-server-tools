@@ -30,8 +30,12 @@ function alert-dagon() {
     send-discord-alert "$DISCORD_WEBHOOK_URL" "<@&$DISCORD_ROLE_REF_ID>\n $(date +%Y-%m-%dT%H:%M:%SZ) $message" "$discord_username" "$discord_avatar_url"
 }
 
-source $DISCORD_ALERT_SCRIPT_PATH
+source "$DISCORD_ALERT_SCRIPT_PATH"
 
 podman start minecraft-papa && playit-linux-amd64
 
 alert-dagon "INFO: Potato Minecraft Server startup initiated ✅"
+
+sleep 5
+
+chown -R root:root "$MINECRAFT_DIR_PATH/data/"
