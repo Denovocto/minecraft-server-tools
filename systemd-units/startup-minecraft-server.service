@@ -1,12 +1,12 @@
 [Unit]
 Description=Service to startup minecraft-papa podman container and start the playitgg tunnel
-After=podman.service
+After=startup-prometheus.service
 
 [Service]
-User=root
+User=denovocto
 Restart=always
-WorkingDirectory=/root/applications/minecraft
-ExecStart=/bin/bash -l /root/applications/minecraft/startup_minecraft_server.sh
+WorkingDirectory=/home/denovocto/applications/minecraft
+ExecStart=/bin/bash -l /home/denovocto/applications/minecraft/startup_minecraft_server.sh
 ExecStop=/usr/bin/podman stop minecraft-papa
 [Install]
 WantedBy=multi-user.target
