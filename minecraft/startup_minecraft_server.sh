@@ -36,6 +36,6 @@ podman start minecraft-papa && playit-linux-amd64
 
 alert-dagon "INFO: Potato Minecraft Server startup initiated ✅"
 
-sleep 5
+sleep 10s
 
 chown -R root:root "$MINECRAFT_DIR_PATH/data/"

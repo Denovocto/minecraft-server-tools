@@ -35,6 +35,6 @@ podman run --name minecraft-papa \
 --network-alias minecraft-papa \
 itzg/minecraft-server:java11
 
-sleep 5
+sleep 10
 
 chown -R root:root "$MINECRAFT_DIR_PATH/data/"
