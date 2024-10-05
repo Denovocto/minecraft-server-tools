@@ -22,7 +22,7 @@ fi
 podman run --name prometheus \
 -d \
 -it \
--p 1010:9090 \
+-p 2020:9090 \
 -v "$PROMETHEUS_DIR_PATH/prometheus.yml:/etc/prometheus/prometheus.yml:Z" \
 --restart on-failure:3 \
 --network chonkatronic-services \
