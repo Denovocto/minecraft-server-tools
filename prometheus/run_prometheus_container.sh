@@ -25,6 +25,6 @@ podman run --name prometheus \
 -p 1010:9090 \
 -v "$PROMETHEUS_DIR_PATH/prometheus.yml:/etc/prometheus/prometheus.yml:Z" \
 --restart on-failure:3 \
---network minecraft \
+--network chonkatronic-services \
 --network-alias prometheus \
 bitnami/prometheus

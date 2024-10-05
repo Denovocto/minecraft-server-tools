@@ -26,6 +26,6 @@ podman run --name grafana \
 -v "$GRAFANA_DIR_PATH/data:/var/lib/grafana:Z" \
 -u 0 \
 --restart on-failure:3 \
---network minecraft \
+--network chonkatronic-services \
 --network-alias grafana \
 grafana/grafana
