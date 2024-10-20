@@ -9,4 +9,4 @@ WorkingDirectory=/home/denovocto/applications/grafana
 ExecStart=/usr/bin/podman start grafana
 ExecStop=/usr/bin/podman stop grafana
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

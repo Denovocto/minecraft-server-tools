@@ -9,4 +9,4 @@ WorkingDirectory=/home/denovocto/applications/minecraft
 ExecStart=/bin/bash -l /home/denovocto/applications/minecraft/startup_minecraft_server.sh
 ExecStop=/usr/bin/podman stop minecraft-papa
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

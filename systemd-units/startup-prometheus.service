@@ -9,4 +9,4 @@ WorkingDirectory=/home/denovocto/applications/grafana
 ExecStart=/usr/bin/podman start prometheus
 ExecStop=/usr/bin/podman stop prometheus
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
