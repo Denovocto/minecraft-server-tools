@@ -8,4 +8,4 @@ OnUnitActiveSec=2h
 Unit=backup-minecraft-server.service
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
